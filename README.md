@@ -1,4 +1,6 @@
 SamDrishti: Where Citizen meets Transperency
+
+
 Problem Statement
 Despite various efforts, there remains a significant gap between government actions and citizen needs. Citizens often lack accessible channels for expressing their concerns or sharing opinions on public services. Simultaneously, governments struggle to monitor public facilities, address grievances, and assess public sentiment in real time. This disconnect hinders effective governance and limits the government’s ability to prioritize actions based on real-time data.
 
