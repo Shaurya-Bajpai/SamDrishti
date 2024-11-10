@@ -9,6 +9,8 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -49,11 +51,11 @@ fun LoginScreen(viewModel: LoginViewModel , navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Image(
-            painter = painterResource(id = R.drawable.welcome_image),
-            contentDescription = "Welcome Image",
-            modifier = Modifier.size(200.dp)
-        )
+//        Image(
+//            painter = painterResource(id = R.drawable.welcome_image),
+//            contentDescription = "Welcome Image",
+//            modifier = Modifier.size(200.dp)
+//        )
 
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -69,7 +71,6 @@ fun LoginScreen(viewModel: LoginViewModel , navController: NavController) {
         TextField(
             value = emailsign,
             onValueChange = { emailsign = it },
-            placeholder = { Text("Password") },
             colors = TextFieldDefaults.textFieldColors(
                 focusedIndicatorColor = Color.LightGray,
                 unfocusedIndicatorColor = Color.LightGray,
@@ -79,16 +80,14 @@ fun LoginScreen(viewModel: LoginViewModel , navController: NavController) {
                 cursorColor = Color.White,
                 containerColor = Color.Transparent,
                 focusedPlaceholderColor = Color.LightGray,
-                unfocusedLabelColor = Color.LightGray,
-                disabledPlaceholderColor = Color.LightGray
+                unfocusedLabelColor = Color.LightGray
             ),
             keyboardOptions = KeyboardOptions(
-                keyboardType = KeyboardType.Password,
+                keyboardType = KeyboardType.Email,
                 imeAction = ImeAction.Next
             ),
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(Color.White), // Background color
+            placeholder = { Text("Email") },
+            modifier = Modifier.fillMaxWidth().padding(16.dp)
         )
 
 
@@ -117,20 +116,20 @@ fun LoginScreen(viewModel: LoginViewModel , navController: NavController) {
             ),
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Password,
-                imeAction = ImeAction.Next
+                imeAction = ImeAction.Done
             ),
             trailingIcon = {
-//                val image =
-//                    if (passwordVisible) painterResource(id = R.drawable.baseline_visibility_24)
-//                    else painterResource(id = R.drawable.baseline_visibility_off_24)
+                val image =
+                    if (passwordVisible) painterResource(id = R.drawable.baseline_visibility_24)
+                    else painterResource(id = R.drawable.baseline_visibility_off_24)
 
-                // Please provide localized description for accessibility services
+//                 Please provide localized description for accessibility services
                 val description =
                     if (passwordVisible) "Hide password" else "Show password"
 
-//                IconButton(onClick = { passwordVisible = !passwordVisible }) {
-//                    Icon(painter = image, description)
-//                }
+                IconButton(onClick = { passwordVisible = !passwordVisible }) {
+                    Icon(painter = image, description)
+                }
             },
             modifier = Modifier.fillMaxWidth().padding(16.dp)
         )
@@ -143,8 +142,10 @@ fun LoginScreen(viewModel: LoginViewModel , navController: NavController) {
 //        )
 
         Button(
-            onClick = { viewModel.login(emailsign, password)
-                      navController.navigate("mainContent")},
+            onClick = {
+//                viewModel.login(emailsign, password)
+                navController.navigate("mainContent")
+            },
             colors = ButtonDefaults.buttonColors(Blue),
             modifier = Modifier
                 .fillMaxWidth()
@@ -157,7 +158,7 @@ fun LoginScreen(viewModel: LoginViewModel , navController: NavController) {
 
         ClickableText(
             text = AnnotatedString("Don't have an account? SignUp"),
-            onClick = { navController.navigate("SignupScreen") },
+            onClick = { navController.navigate("SignScreen") },
             style = LocalTextStyle.current.copy(color = Color.White)
         )
 

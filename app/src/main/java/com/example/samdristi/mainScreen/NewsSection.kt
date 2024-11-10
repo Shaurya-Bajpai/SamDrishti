@@ -48,7 +48,7 @@ fun NewsSection(viewModel: SmartCityViewModel) {
             Text(
                 text = "News",
                 fontSize = 20.sp,
-                color = Color.Black,
+                color = Color.LightGray,
                 textAlign = TextAlign.Start
             )
             Button(onClick = { viewModel.refreshNews() }) {

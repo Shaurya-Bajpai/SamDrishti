@@ -30,9 +30,13 @@ import com.example.samdristi.ComplainRegistration.MainViewModel
 import com.example.samdristi.DocumetSummerizer.SimplifyScreen
 import com.example.samdristi.GovData.InflationScreen
 import com.example.samdristi.GovData.InflationViewModel
+import com.example.samdristi.GovScreen.GovScreen
+import com.example.samdristi.GovScreen.SentimentScreen
 import com.example.samdristi.LoginScreen.LoginScreen
 import com.example.samdristi.LoginScreen.LoginViewModel
+import com.example.samdristi.SingupScreen.GovSignUp
 import com.example.samdristi.SingupScreen.NextScreen
+import com.example.samdristi.SingupScreen.SignScreen
 import com.example.samdristi.SingupScreen.SignUpScreen
 import com.example.samdristi.SingupScreen.SignUpViewModel
 import com.example.samdristi.mapScreen.MapScreen
@@ -91,6 +95,15 @@ fun SmartCityApp(viewModel: SmartCityViewModel = viewModel()) {
                 showBars = true
                 MainContent(paddingValues, viewModel, navController)
             }
+
+            composable("govscreen") {
+                showBars = true
+                GovScreen(paddingValues, viewModel, navController)
+            }
+            composable("sentimentScreen") {
+                showBars = true
+                SentimentScreen()
+            }
             composable("chatBotScreen") {
                 showBars = false
                 ChatBot()
@@ -109,6 +122,16 @@ fun SmartCityApp(viewModel: SmartCityViewModel = viewModel()) {
             composable("LoginScreen"){
                 showBars = false
                 LoginScreen(loginViewModel , navController)
+            }
+
+            composable("SignScreen"){
+                showBars = false
+                SignScreen(navController)
+            }
+
+            composable("GovScreen"){
+                showBars = false
+                GovSignUp(navController, singupViewModel)
             }
 
             composable("SignupScreen") {

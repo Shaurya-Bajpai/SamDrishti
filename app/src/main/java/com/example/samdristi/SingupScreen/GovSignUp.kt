@@ -229,7 +229,7 @@ fun GovSignUp(navController: NavController, viewModel: SignUpViewModel) {
                         ).show()
                     }
 
-                navController.navigate("mainContent")
+                navController.navigate("govscreen")
             },
             colors = ButtonDefaults.buttonColors(Blue)
         ) {
